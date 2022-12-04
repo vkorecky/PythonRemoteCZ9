@@ -3,6 +3,12 @@
 {% block content %}
     <h1>{{ room.name }}</h1>
     <div class="box">{{ room.description }}</div>
+    <div class="box room__message">
+        <form method="POST">
+            {% csrf_token %}
+            <input name="body" placeholder="Write your message here..."/>
+        </form>
+    </div>
     {% for message in messages %}
         <div class="message">{{ message.body }}</div>
     {% endfor %}
