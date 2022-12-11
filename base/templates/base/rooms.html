@@ -6,7 +6,7 @@
     {% for room in object_list %}
         <div class="box">
             <div style="float: left;">
-                <a href="{% url 'room' room.id %}">{{ room.name }}</a><br/>
+                <a href="{% url 'room' room.id %}">{{ room.name|capfirst }}</a><br/>
                 {{ room.description }}
             </div>
             <div style="float: right;">
