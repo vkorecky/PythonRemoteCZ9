@@ -1,6 +1,7 @@
 from django.contrib.auth.models import User
 from django.db import models
 from django.db.models import Model
+from django.template.defaultfilters import truncatechars
 
 
 # Create your models here.
@@ -25,9 +26,11 @@ class Message(Model):
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
+    def body_short(self):
+        return truncatechars(self.body, 50)
+
     def __str__(self):
         return self.body[0:50]
 
     class Meta:
         ordering = ['-created', 'body']
-
