@@ -1,15 +1,16 @@
 <ul>
-    <li class="first active">
-        <a href="{% url 'rooms' %}">Rooms</a>
-    </li>
-
-    {% if perms.base.add_room %}
-        <li>
-            <a href="{% url 'room_create' %}">Create room</a>
-        </li>
-    {% endif %}
-
     {% if user.is_authenticated %}
+        <li class="first active">
+            <a href="{% url 'rooms' %}">Rooms</a>
+        </li>
+
+        {% if perms.base.add_room %}
+            <li>
+                <a href="{% url 'room_create' %}">Create room</a>
+            </li>
+        {% endif %}
+
+
         <li class="last-child">
             {{ user.username }}
         </li>
